@@ -1,2 +1,2 @@
 # rolesyntax-legal
-Official legal documents for RoleSyntax
+Official Terms of Service and Privacy Policy for RoleSyntax.
