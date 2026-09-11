@@ -1,1 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>RoleSyntax — Privacy Policy</title>
+
+  <meta
+    name="description"
+    content="Official Privacy Policy for RoleSyntax, a Discord bot developed and maintained by Hidden Team."
+  >
+
+  <style>
+    :root {
+      --bg: #0b0f17;
+      --card: #111827;
+      --border: #263244;
+
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+
+      --primary: #60a5fa;
+      --primary-soft: rgba(96, 165, 250, 0.10);
+
+      --success: #4ade80;
+      --warning: #facc15;
+
+      --max-width: 920px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+
+      font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
+      line-height: 1.75;
+
+      background:
+        radial-gradient(
+          circle at top,
+          rgba(96, 165, 250, 0.08),
+          transparent 35%
+        ),
+        var(--bg);
+
+      color: var(--text);
+    }
+
+    .container {
+      width: min(100% - 32px, var(--max-width));
+      margin: 0 auto;
+      padding: 60px 0;
+    }
+
+    .header {
+      margin-bottom: 35px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+
+      padding: 7px 12px;
+
+      border: 1px solid rgba(96, 165, 250, 0.25);
+      border-radius: 999px;
+
+      background: var(--primary-soft);
+      color: var(--primary);
+
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+
+    .badge::before {
+      content: "";
+
+      width: 7px;
+      height: 7px;
+
+      border-radius: 50%;
+
+      background: var(--success);
+
+      box-shadow:
+        0 0 10px rgba(74, 222, 128, 0.55);
+    }
+
+    h1 {
+      margin: 18px 0 8px;
+
+      font-size: clamp(34px, 6vw, 52px);
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+
+      color: #f8fafc;
+    }
+
+    .subtitle {
+      max-width: 720px;
+
+      margin: 0;
+
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .updated {
+      margin-top: 20px;
+
+      color: #64748b;
+      font-size: 14px;
+    }
+
+    .notice {
+      margin: 30px 0;
+      padding: 20px 22px;
+
+      border: 1px solid rgba(96, 165, 250, 0.22);
+      border-left: 4px solid var(--primary);
+      border-radius: 12px;
+
+      background: var(--primary-soft);
+    }
+
+    .notice strong {
+      display: block;
+      margin-bottom: 6px;
+
+      color: #dbeafe;
+    }
+
+    .notice p {
+      margin: 0;
+      color: #b9c6d8;
+    }
+
+    .toc {
+      margin: 30px 0;
+      padding: 22px;
+
+      border: 1px solid var(--border);
+      border-radius: 14px;
+
+      background: rgba(17, 24, 39, 0.75);
+    }
+
+    .toc h2 {
+      margin-top: 0;
+      font-size: 18px;
+    }
+
+    .toc a {
+      color: #93c5fd;
+      text-decoration: none;
+    }
+
+    .toc a:hover {
+      text-decoration: underline;
+    }
+
+    .toc ul {
+      margin: 12px 0 0;
+      padding-left: 20px;
+    }
+
+    section {
+      margin-top: 42px;
+      padding: 28px;
+
+      border: 1px solid var(--border);
+      border-radius: 16px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(17, 24, 39, 0.96),
+          rgba(15, 23, 42, 0.92)
+        );
+
+      box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    h2 {
+      margin: 0 0 14px;
+
+      font-size: 22px;
+      line-height: 1.3;
+
+      color: #dbeafe;
+    }
+
+    p {
+      margin: 0 0 14px;
+      color: #cbd5e1;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    ul {
+      padding-left: 22px;
+      color: #cbd5e1;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .highlight {
+      color: #f8fafc;
+      font-weight: 600;
+    }
+
+    .warning {
+      margin-top: 18px;
+      padding: 16px 18px;
+
+      border: 1px solid rgba(250, 204, 21, 0.20);
+      border-radius: 10px;
+
+      background: rgba(250, 204, 21, 0.06);
+    }
+
+    .warning strong {
+      color: var(--warning);
+    }
+
+    a {
+      color: var(--primary);
+    }
+
+    footer {
+      margin-top: 55px;
+      padding: 28px 0 10px;
+
+      border-top: 1px solid var(--border);
+
+      color: #64748b;
+      font-size: 14px;
+
+      text-align: center;
+    }
+
+    .footer-brand {
+      color: #94a3b8;
+      font-weight: 600;
+    }
+
+    .team {
+      color: #cbd5e1;
+      font-weight: 600;
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: min(100% - 20px, var(--max-width));
+        padding: 35px 0;
+      }
+
+      section {
+        padding: 22px 18px;
+        border-radius: 13px;
+      }
+
+      .toc {
+        padding: 18px;
+      }
+
+      h1 {
+        font-size: 35px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="container">
+
+    <!-- HEADER -->
+    <header class="header">
+
+      <span class="badge">
+        Official Privacy Policy
+      </span>
+
+      <h1>RoleSyntax</h1>
+
+      <p class="subtitle">
+        Privacy Policy describing how RoleSyntax may process
+        information while providing its Discord bot services.
+      </p>
+
+      <p class="updated">
+        Last Updated:
+        <strong>September 11, 2026</strong>
+      </p>
+
+    </header>
+
+
+    <!-- NOTICE -->
+    <div class="notice">
+
+      <strong>Privacy at a Glance</strong>
+
+      <p>
+        RoleSyntax is designed to process only the information
+        reasonably necessary to provide its enabled features,
+        maintain the service, and support server functionality.
+      </p>
+
+    </div>
+
+
+    <!-- TABLE OF CONTENTS -->
+    <nav class="toc">
+
+      <h2>Contents</h2>
+
+      <ul>
+        <li><a href="#introduction">1. Introduction</a></li>
+        <li><a href="#information">2. Information We May Process</a></li>
+        <li><a href="#usage">3. How Information Is Used</a></li>
+        <li><a href="#discord">4. Discord Information</a></li>
+        <li><a href="#storage">5. Data Storage and Retention</a></li>
+        <li><a href="#sharing">6. Information Sharing</a></li>
+        <li><a href="#security">7. Security</a></li>
+        <li><a href="#thirdparty">8. Third-Party Services</a></li>
+        <li><a href="#choices">9. Your Choices</a></li>
+        <li><a href="#children">10. Children and Age Requirements</a></li>
+        <li><a href="#changes">11. Changes to This Privacy Policy</a></li>
+        <li><a href="#contact">12. Contact</a></li>
+      </ul>
+
+    </nav>
+
+
+    <!-- 1 -->
+    <section id="introduction">
+
+      <h2>1. Introduction</h2>
+
+      <p>
+        This Privacy Policy explains how
+        <span class="highlight">Hidden Team</span>
+        ("Hidden Team", "we", "us", or "our") may process information
+        through RoleSyntax ("RoleSyntax" or "the Bot").
+      </p>
+
+      <p>
+        RoleSyntax is a Discord bot designed to provide role selection,
+        role management, automation, and related server functionality.
+      </p>
+
+      <p>
+        By using RoleSyntax, you acknowledge the practices described
+        in this Privacy Policy.
+      </p>
+
+    </section>
+
+
+    <!-- 2 -->
+    <section id="information">
+
+      <h2>2. Information We May Process</h2>
+
+      <p>
+        Depending on the features enabled by a Discord server,
+        RoleSyntax may process information made available through
+        Discord and information necessary for the Bot to perform
+        its functions.
+      </p>
+
+      <p>This may include:</p>
+
+      <ul>
+        <li>Discord user ID</li>
+        <li>Discord server or guild ID</li>
+        <li>Username or display name</li>
+        <li>Role IDs and role-related selections</li>
+        <li>Server configuration or Bot settings</li>
+        <li>Interaction information needed to respond to commands or buttons</li>
+        <li>Technical information necessary to operate and maintain the service</li>
+      </ul>
+
+      <p>
+        The exact information processed may depend on the features
+        enabled and how RoleSyntax is configured by a server
+        administrator.
+      </p>
+
+    </section>
+
+
+    <!-- 3 -->
+    <section id="usage">
+
+      <h2>3. How Information Is Used</h2>
+
+      <p>
+        Information processed by RoleSyntax may be used for purposes
+        such as:
+      </p>
+
+      <ul>
+        <li>Providing role selection and role-management features</li>
+        <li>Responding to commands, buttons, menus, or other interactions</li>
+        <li>Saving necessary server configuration</li>
+        <li>Maintaining and improving Bot functionality</li>
+        <li>Monitoring technical errors and service problems</li>
+        <li>Protecting the service from abuse or unauthorized activity</li>
+        <li>Providing support when a problem is reported</li>
+      </ul>
+
+      <p>
+        Hidden Team does not intend to process information beyond
+        what is reasonably necessary for the operation of RoleSyntax
+        and its enabled features.
+      </p>
+
+    </section>
+
+
+    <!-- 4 -->
+    <section id="discord">
+
+      <h2>4. Discord Information</h2>
+
+      <p>
+        RoleSyntax operates through Discord and may receive certain
+        information that Discord makes available to applications
+        and bots.
+      </p>
+
+      <p>
+        Such information may include identifiers, usernames,
+        display names, server information, role information,
+        interaction data, and other information made available
+        through Discord's platform and permission system.
+      </p>
+
+      <p>
+        Your use of Discord is separately governed by Discord's
+        own Terms of Service and Privacy Policy.
+      </p>
+
+    </section>
+
+
+    <!-- 5 -->
+    <section id="storage">
+
+      <h2>5. Data Storage and Retention</h2>
+
+      <p>
+        Some information may be stored when necessary for RoleSyntax
+        to remember configuration, provide persistent functionality,
+        troubleshoot technical issues, or maintain the service.
+      </p>
+
+      <p>
+        The amount and duration of storage may vary depending on the
+        feature, server configuration, technical requirements, and
+        operational needs of the service.
+      </p>
+
+      <p>
+        Hidden Team aims to retain information only for as long as
+        reasonably necessary for the purpose for which it is used,
+        subject to technical, operational, security, and legal
+        requirements.
+      </p>
+
+      <div class="warning">
+
+        <strong>Important:</strong>
+
+        Removing RoleSyntax from a server may stop future processing
+        for that server, but may not immediately remove information
+        that was already stored for legitimate operational purposes.
+
+      </div>
+
+    </section>
+
+
+    <!-- 6 -->
+    <section id="sharing">
+
+      <h2>6. Information Sharing</h2>
+
+      <p>
+        Hidden Team does not sell personal information collected or
+        processed through RoleSyntax.
+      </p>
+
+      <p>
+        Information may only be accessed, disclosed, or processed
+        when reasonably necessary to:
+      </p>
+
+      <ul>
+        <li>Operate and maintain RoleSyntax</li>
+        <li>Provide requested support</li>
+        <li>Protect the service and its users</li>
+        <li>Use infrastructure or service providers required to operate the Bot</li>
+        <li>Comply with applicable legal obligations</li>
+        <li>Investigate abuse, security incidents, or technical problems</li>
+      </ul>
+
+      <p>
+        Hidden Team will not intentionally use RoleSyntax to collect
+        unnecessary personal information.
+      </p>
+
+    </section>
+
+
+    <!-- 7 -->
+    <section id="security">
+
+      <h2>7. Security</h2>
+
+      <p>
+        Hidden Team takes reasonable technical and organizational
+        measures to help protect information processed through
+        RoleSyntax.
+      </p>
+
+      <p>
+        However, no online service or software system can guarantee
+        absolute security. Users and server administrators are also
+        responsible for maintaining the security of their own Discord
+        accounts, permissions, and server configuration.
+      </p>
+
+    </section>
+
+
+    <!-- 8 -->
+    <section id="thirdparty">
+
+      <h2>8. Third-Party Services</h2>
+
+      <p>
+        RoleSyntax relies on Discord and may rely on third-party
+        hosting, infrastructure, databases, APIs, monitoring,
+        or other technical services.
+      </p>
+
+      <p>
+        Third-party services may process information according to
+        their own privacy policies and terms.
+      </p>
+
+      <p>
+        Hidden Team is not responsible for privacy practices or
+        security incidents caused by third-party services outside
+        its reasonable control.
+      </p>
+
+    </section>
+
+
+    <!-- 9 -->
+    <section id="choices">
+
+      <h2>9. Your Choices</h2>
+
+      <p>
+        Depending on the feature involved, users and server
+        administrators may control certain information by changing
+        their Discord settings, server configuration, or by
+        discontinuing use of RoleSyntax.
+      </p>
+
+      <p>
+        Server administrators may remove RoleSyntax from their
+        Discord server at any time.
+      </p>
+
+      <p>
+        For questions regarding stored information or a privacy
+        concern related to RoleSyntax, contact Hidden Team through
+        the official support channel.
+      </p>
+
+    </section>
+
+
+    <!-- 10 -->
+    <section id="children">
+
+      <h2>10. Children and Age Requirements</h2>
+
+      <p>
+        RoleSyntax is a Discord application and does not independently
+        determine a user's age.
+      </p>
+
+      <p>
+        Users must meet the age and account requirements established
+        by Discord and applicable law in their location.
+      </p>
+
+    </section>
+
+
+    <!-- 11 -->
+    <section id="changes">
+
+      <h2>11. Changes to This Privacy Policy</h2>
+
+      <p>
+        Hidden Team may update this Privacy Policy from time to time
+        to reflect changes to RoleSyntax, its features, technical
+        infrastructure, security practices, or applicable requirements.
+      </p>
+
+      <p>
+        The "Last Updated" date at the top of this page indicates
+        when this Privacy Policy was most recently revised.
+      </p>
+
+      <p>
+        Continued use of RoleSyntax after changes become effective
+        constitutes acknowledgment of the updated Privacy Policy,
+        to the extent permitted by applicable law.
+      </p>
+
+    </section>
+
+
+    <!-- 12 -->
+    <section id="contact">
+
+      <h2>12. Contact</h2>
+
+      <p>
+        For privacy questions, concerns, data-related requests,
+        or other issues involving RoleSyntax, contact
+        <span class="highlight">Hidden Team</span>
+        through the official RoleSyntax support server.
+      </p>
+
+      <p>
+        Please provide enough information for the support team to
+        understand and investigate your request.
+      </p>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+      <p class="footer-brand">
+        © 2026 RoleSyntax — Developed and maintained by Hidden Team.
+      </p>
+
+      <p>
+        RoleSyntax is an independent Discord bot and is not operated,
+        endorsed, or sponsored by Discord Inc.
+      </p>
+
+    </footer>
+
+  </main>
+
+</body>
+</html>
