@@ -1,32 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en" data-theme="dark">
 
-  <title>RoleSyntax — Privacy Policy</title>
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <meta
     name="description"
     content="Official Privacy Policy for RoleSyntax, a Discord bot developed and maintained by Hidden Team."
   >
 
+  <meta
+    name="theme-color"
+    content="#070a12"
+  >
+
+  <title>RoleSyntax — Privacy Policy</title>
+
   <style>
     :root {
-      --bg: #0b0f17;
-      --card: #111827;
-      --border: #263244;
+      --bg: #070a12;
+      --surface: rgba(15,23,42,.76);
+      --surface-solid: #101827;
+      --surface-soft: rgba(255,255,255,.035);
 
-      --text: #e5e7eb;
+      --border: rgba(148,163,184,.14);
+      --border-strong: rgba(148,163,184,.23);
+
+      --text: #f8fafc;
+      --text-soft: #cbd5e1;
       --muted: #94a3b8;
 
       --primary: #60a5fa;
-      --primary-soft: rgba(96, 165, 250, 0.10);
+      --primary-strong: #3b82f6;
+      --primary-soft: rgba(96,165,250,.09);
 
       --success: #4ade80;
       --warning: #facc15;
 
-      --max-width: 920px;
+      --max: 1180px;
+      --content: 860px;
+
+      --shadow: 0 22px 60px rgba(0,0,0,.25);
+      --shadow-soft: 0 10px 30px rgba(0,0,0,.15);
+
+      color-scheme: dark;
+    }
+
+    html[data-theme="light"] {
+      --bg: #f5f7fb;
+      --surface: rgba(255,255,255,.80);
+      --surface-solid: #fff;
+      --surface-soft: rgba(15,23,42,.035);
+
+      --border: rgba(15,23,42,.10);
+      --border-strong: rgba(15,23,42,.18);
+
+      --text: #0f172a;
+      --text-soft: #334155;
+      --muted: #64748b;
+
+      --primary: #2563eb;
+      --primary-strong: #1d4ed8;
+      --primary-soft: rgba(37,99,235,.07);
+
+      --shadow: 0 22px 60px rgba(15,23,42,.09);
+      --shadow-soft: 0 10px 30px rgba(15,23,42,.06);
+
+      color-scheme: light;
     }
 
     * {
@@ -35,42 +81,307 @@
 
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: 90px;
     }
 
     body {
       margin: 0;
-      padding: 0;
+      min-height: 100vh;
 
       font-family:
         Inter,
+        ui-sans-serif,
+        system-ui,
         -apple-system,
         BlinkMacSystemFont,
         "Segoe UI",
-        Roboto,
         Arial,
         sans-serif;
 
       line-height: 1.75;
+      color: var(--text);
 
       background:
         radial-gradient(
-          circle at top,
-          rgba(96, 165, 250, 0.08),
-          transparent 35%
+          circle at 12% 0%,
+          rgba(96,165,250,.15),
+          transparent 28%
         ),
         var(--bg);
+    }
 
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    select {
+      font: inherit;
+    }
+
+    ::selection {
+      background: rgba(96,165,250,.22);
+    }
+
+    .progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+
+      width: 0;
+      height: 3px;
+
+      z-index: 9999;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--primary-strong),
+          #8b5cf6,
+          var(--primary)
+        );
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+
+      border-bottom: 1px solid var(--border);
+
+      background:
+        color-mix(
+          in srgb,
+          var(--bg) 80%,
+          transparent
+        );
+
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .nav-inner {
+      width: min(100% - 28px, var(--max));
+      min-height: 67px;
+      margin: auto;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+    }
+
+    .brand-mark {
+      width: 37px;
+      height: 37px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 11px;
+
+      color: white;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--primary-strong),
+          #7c3aed
+        );
+    }
+
+    .brand-copy strong {
+      display: block;
+      font-size: 14px;
+      line-height: 1;
+    }
+
+    .brand-copy span {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 600;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 4px;
+    }
+
+    .nav-link {
+      padding: 8px 11px;
+      border-radius: 9px;
+
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+
+      transition: .18s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--text);
+      background: var(--surface-soft);
+    }
+
+    .nav-link.active {
+      color: var(--primary);
+      background: var(--primary-soft);
+    }
+
+    .icon-btn {
+      width: 38px;
+      height: 38px;
+
+      border: 1px solid var(--border);
+      border-radius: 10px;
+
+      background: var(--surface-soft);
+      color: var(--text-soft);
+
+      cursor: pointer;
+    }
+
+    .mobile-nav {
+      display: none;
+
+      margin-top: 16px;
+      padding: 12px;
+
+      border: 1px solid var(--border);
+      border-radius: 14px;
+
+      background: var(--surface);
+    }
+
+    .mobile-nav label {
+      display: block;
+      margin-bottom: 6px;
+
+      color: var(--muted);
+
+      font-size: 10px;
+      font-weight: 800;
+
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .mobile-nav select {
+      width: 100%;
+      padding: 10px;
+
+      border: 1px solid var(--border);
+      border-radius: 10px;
+
+      background: var(--surface-solid);
       color: var(--text);
     }
 
-    .container {
-      width: min(100% - 32px, var(--max-width));
-      margin: 0 auto;
-      padding: 60px 0;
+    .shell {
+      width: min(100% - 28px, var(--max));
+
+      margin: auto;
+      padding: 48px 0 70px;
+
+      display: grid;
+
+      grid-template-columns: 245px minmax(0, var(--content));
+      gap: 45px;
+
+      justify-content: center;
+      align-items: start;
     }
 
-    .header {
-      margin-bottom: 35px;
+    .sidebar {
+      position: sticky;
+      top: 90px;
+
+      max-height: calc(100vh - 110px);
+
+      overflow-y: auto;
+    }
+
+    .sidebar-title {
+      margin-bottom: 10px;
+
+      color: var(--muted);
+
+      font-size: 10px;
+      font-weight: 850;
+
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    .toc {
+      display: grid;
+      gap: 4px;
+    }
+
+    .toc a {
+      position: relative;
+
+      padding: 8px 10px 8px 13px;
+
+      border: 1px solid transparent;
+      border-radius: 9px;
+
+      color: var(--muted);
+
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .toc a:hover {
+      color: var(--text);
+      background: var(--surface-soft);
+    }
+
+    .toc a.active {
+      color: var(--primary);
+
+      border-color:
+        rgba(96,165,250,.15);
+
+      background: var(--primary-soft);
+    }
+
+    .toc a.active::before {
+      content: "";
+
+      position: absolute;
+      left: -1px;
+      top: 7px;
+      bottom: 7px;
+
+      width: 2px;
+
+      border-radius: 999px;
+
+      background: var(--primary);
+    }
+
+    .hero {
+      padding: 32px;
+
+      border: 1px solid var(--border);
+      border-radius: 22px;
+
+      background: var(--surface);
+
+      box-shadow: var(--shadow);
+
+      backdrop-filter: blur(16px);
     }
 
     .badge {
@@ -78,17 +389,20 @@
       align-items: center;
       gap: 8px;
 
-      padding: 7px 12px;
+      padding: 7px 11px;
 
-      border: 1px solid rgba(96, 165, 250, 0.25);
+      border: 1px solid rgba(96,165,250,.20);
       border-radius: 999px;
 
       background: var(--primary-soft);
+
       color: var(--primary);
 
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.3px;
+      font-size: 10px;
+      font-weight: 850;
+
+      letter-spacing: .08em;
+      text-transform: uppercase;
     }
 
     .badge::before {
@@ -100,196 +414,366 @@
       border-radius: 50%;
 
       background: var(--success);
-
-      box-shadow:
-        0 0 10px rgba(74, 222, 128, 0.55);
+      box-shadow: 0 0 10px rgba(74,222,128,.55);
     }
 
-    h1 {
+    .hero h1 {
       margin: 18px 0 8px;
 
-      font-size: clamp(34px, 6vw, 52px);
-      line-height: 1.1;
-      letter-spacing: -1.5px;
+      font-size: clamp(40px, 7vw, 60px);
+      line-height: .98;
 
-      color: #f8fafc;
+      letter-spacing: -.055em;
     }
 
     .subtitle {
-      max-width: 720px;
+      max-width: 710px;
 
       margin: 0;
 
-      color: var(--muted);
-      font-size: 16px;
-    }
+      color: var(--text-soft);
 
-    .updated {
-      margin-top: 20px;
-
-      color: #64748b;
       font-size: 14px;
     }
 
-    .notice {
-      margin: 30px 0;
-      padding: 20px 22px;
+    .updated {
+      margin-top: 18px;
 
-      border: 1px solid rgba(96, 165, 250, 0.22);
-      border-left: 4px solid var(--primary);
-      border-radius: 12px;
+      color: var(--muted);
+
+      font-size: 12px;
+    }
+
+    .updated strong {
+      color: var(--text-soft);
+    }
+
+    .hero-buttons {
+      margin-top: 20px;
+
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 10px 13px;
+
+      border: 1px solid var(--border);
+      border-radius: 9px;
+
+      background: var(--surface-soft);
+      color: var(--text-soft);
+
+      font-size: 10px;
+      font-weight: 800;
+
+      transition: .18s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      border-color: var(--border-strong);
+    }
+
+    .btn.primary {
+      color: white;
+      background: var(--primary-strong);
+      border-color: var(--primary-strong);
+    }
+
+    .notice {
+      margin-top: 20px;
+      padding: 18px;
+
+      display: flex;
+      gap: 12px;
+
+      border: 1px solid rgba(96,165,250,.18);
+      border-left: 3px solid var(--primary);
+
+      border-radius: 13px;
 
       background: var(--primary-soft);
     }
 
+    .notice-icon {
+      width: 28px;
+      height: 28px;
+
+      flex: none;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 8px;
+
+      color: var(--primary);
+
+      background: rgba(96,165,250,.10);
+
+      font-weight: 900;
+    }
+
     .notice strong {
       display: block;
-      margin-bottom: 6px;
-
-      color: #dbeafe;
+      margin-bottom: 2px;
+      color: var(--text);
+      font-size: 12px;
     }
 
     .notice p {
       margin: 0;
-      color: #b9c6d8;
+      color: var(--text-soft);
+      font-size: 12px;
     }
 
-    .toc {
-      margin: 30px 0;
-      padding: 22px;
+    .policy-section {
+      position: relative;
+
+      margin-top: 17px;
+      padding: 27px;
 
       border: 1px solid var(--border);
-      border-radius: 14px;
-
-      background: rgba(17, 24, 39, 0.75);
-    }
-
-    .toc h2 {
-      margin-top: 0;
-      font-size: 18px;
-    }
-
-    .toc a {
-      color: #93c5fd;
-      text-decoration: none;
-    }
-
-    .toc a:hover {
-      text-decoration: underline;
-    }
-
-    .toc ul {
-      margin: 12px 0 0;
-      padding-left: 20px;
-    }
-
-    section {
-      margin-top: 42px;
-      padding: 28px;
-
-      border: 1px solid var(--border);
-      border-radius: 16px;
+      border-radius: 17px;
 
       background:
         linear-gradient(
           145deg,
-          rgba(17, 24, 39, 0.96),
-          rgba(15, 23, 42, 0.92)
+          rgba(17,24,39,.88),
+          rgba(15,23,42,.68)
         );
 
-      box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.15);
+      box-shadow: var(--shadow-soft);
+
+      scroll-margin-top: 90px;
+
+      transition:
+        border-color .18s ease,
+        box-shadow .18s ease;
     }
 
-    h2 {
-      margin: 0 0 14px;
+    .policy-section:hover {
+      border-color: var(--border-strong);
+    }
 
-      font-size: 22px;
+    .policy-section.flash {
+      border-color: rgba(96,165,250,.42);
+
+      box-shadow:
+        0 0 0 1px rgba(96,165,250,.08),
+        var(--shadow-soft);
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: flex-start;
+      gap: 11px;
+      margin-bottom: 14px;
+    }
+
+    .section-number {
+      width: 30px;
+      height: 30px;
+
+      flex: none;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 9px;
+
+      background: var(--primary-soft);
+
+      color: var(--primary);
+
+      font-size: 10px;
+      font-weight: 850;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+
+      font-size: 20px;
       line-height: 1.3;
 
-      color: #dbeafe;
+      letter-spacing: -.025em;
     }
 
-    p {
-      margin: 0 0 14px;
-      color: #cbd5e1;
+    .copy-link {
+      margin-left: auto;
+
+      width: 31px;
+      height: 31px;
+
+      border: 1px solid var(--border);
+      border-radius: 9px;
+
+      background: var(--surface-soft);
+
+      color: var(--muted);
+
+      cursor: pointer;
     }
 
-    p:last-child {
-      margin-bottom: 0;
+    .policy-section p {
+      margin: 0 0 13px;
+
+      color: var(--text-soft);
+
+      font-size: 13px;
     }
 
-    ul {
-      padding-left: 22px;
-      color: #cbd5e1;
+    .policy-section ul {
+      margin: 9px 0 16px;
+      padding-left: 20px;
+
+      color: var(--text-soft);
+
+      font-size: 13px;
     }
 
-    li {
-      margin-bottom: 8px;
+    .policy-section li {
+      margin-bottom: 6px;
+    }
+
+    .policy-section li::marker {
+      color: var(--primary);
     }
 
     .highlight {
-      color: #f8fafc;
-      font-weight: 600;
+      color: var(--text);
+      font-weight: 750;
     }
 
     .warning {
-      margin-top: 18px;
-      padding: 16px 18px;
+      margin-top: 17px;
+      padding: 15px 16px;
 
-      border: 1px solid rgba(250, 204, 21, 0.20);
-      border-radius: 10px;
+      border: 1px solid rgba(250,204,21,.18);
+      border-left: 3px solid var(--warning);
 
-      background: rgba(250, 204, 21, 0.06);
+      border-radius: 11px;
+
+      background: rgba(250,204,21,.045);
     }
 
     .warning strong {
       color: var(--warning);
+      font-size: 12px;
     }
 
-    a {
-      color: var(--primary);
+    .warning p {
+      margin-top: 3px;
+      margin-bottom: 0;
     }
 
     footer {
-      margin-top: 55px;
-      padding: 28px 0 10px;
+      width: min(100% - 28px, var(--max));
+      margin: 0 auto;
+
+      padding: 25px 8px 35px;
 
       border-top: 1px solid var(--border);
 
-      color: #64748b;
-      font-size: 14px;
-
       text-align: center;
+
+      color: var(--muted);
+
+      font-size: 10px;
     }
 
-    .footer-brand {
-      color: #94a3b8;
-      font-weight: 600;
+    .footer-links {
+      margin: 11px 0;
+
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
     }
 
-    .team {
-      color: #cbd5e1;
-      font-weight: 600;
+    .footer-links a {
+      font-weight: 700;
     }
 
-    @media (max-width: 640px) {
-      .container {
-        width: min(100% - 20px, var(--max-width));
-        padding: 35px 0;
+    .footer-links a:hover {
+      color: var(--primary);
+    }
+
+    .top-btn {
+      position: fixed;
+      right: 17px;
+      bottom: 17px;
+      z-index: 500;
+
+      width: 43px;
+      height: 43px;
+
+      border: 1px solid var(--border);
+      border-radius: 12px;
+
+      background: var(--surface-solid);
+      color: var(--text-soft);
+
+      cursor: pointer;
+
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+
+      transition: .18s ease;
+    }
+
+    .top-btn.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1000px) {
+
+      .nav-links {
+        display: none;
       }
 
-      section {
-        padding: 22px 18px;
-        border-radius: 13px;
+      .mobile-nav {
+        display: block;
       }
 
-      .toc {
-        padding: 18px;
+      .shell {
+        display: block;
+        width: min(100% - 28px, var(--content));
       }
 
-      h1 {
-        font-size: 35px;
+      .sidebar {
+        display: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      .hero {
+        padding: 23px 18px;
+      }
+
+      .hero h1 {
+        font-size: 42px;
+      }
+
+      .policy-section {
+        padding: 21px 17px;
+      }
+
+      .brand-copy span {
+        display: none;
+      }
+
+      .btn {
+        flex: 1;
       }
     }
   </style>
@@ -297,399 +781,1093 @@
 
 <body>
 
-  <main class="container">
-
-    <!-- HEADER -->
-    <header class="header">
-
-      <span class="badge">
-        Official Privacy Policy
-      </span>
-
-      <h1>RoleSyntax</h1>
-
-      <p class="subtitle">
-        Privacy Policy describing how RoleSyntax may process
-        information while providing its Discord bot services.
-      </p>
-
-      <p class="updated">
-        Last Updated:
-        <strong>September 11, 2026</strong>
-      </p>
-
-    </header>
+  <div
+    class="progress"
+    id="progress"
+  ></div>
 
 
-    <!-- NOTICE -->
-    <div class="notice">
+  <header class="navbar">
 
-      <strong>Privacy at a Glance</strong>
+    <div class="nav-inner">
 
-      <p>
-        RoleSyntax is designed to process only the information
-        reasonably necessary to provide its enabled features,
-        maintain the service, and support server functionality.
-      </p>
+      <a
+        href="showcase.html"
+        class="brand"
+      >
+
+        <div class="brand-mark">
+          R
+        </div>
+
+        <div class="brand-copy">
+
+          <strong>RoleSyntax</strong>
+
+          <span>
+            by Hidden Team
+          </span>
+
+        </div>
+
+      </a>
+
+
+      <nav
+        class="nav-links"
+        aria-label="Primary navigation"
+      >
+
+        <a
+          href="showcase.html"
+          class="nav-link"
+        >
+          Showcase
+        </a>
+
+        <a
+          href="privacy.html"
+          class="nav-link active"
+        >
+          Privacy
+        </a>
+
+        <a
+          href="terms.html"
+          class="nav-link"
+        >
+          Terms
+        </a>
+
+        <a
+          href="https://discord.gg/YOUR_SUPPORT_SERVER"
+          class="nav-link"
+        >
+          Support
+        </a>
+
+      </nav>
+
+
+      <button
+        class="icon-btn"
+        id="themeToggle"
+        type="button"
+        aria-label="Toggle theme"
+      >
+        ☾
+      </button>
 
     </div>
 
-
-    <!-- TABLE OF CONTENTS -->
-    <nav class="toc">
-
-      <h2>Contents</h2>
-
-      <ul>
-        <li><a href="#introduction">1. Introduction</a></li>
-        <li><a href="#information">2. Information We May Process</a></li>
-        <li><a href="#usage">3. How Information Is Used</a></li>
-        <li><a href="#discord">4. Discord Information</a></li>
-        <li><a href="#storage">5. Data Storage and Retention</a></li>
-        <li><a href="#sharing">6. Information Sharing</a></li>
-        <li><a href="#security">7. Security</a></li>
-        <li><a href="#thirdparty">8. Third-Party Services</a></li>
-        <li><a href="#choices">9. Your Choices</a></li>
-        <li><a href="#children">10. Children and Age Requirements</a></li>
-        <li><a href="#changes">11. Changes to This Privacy Policy</a></li>
-        <li><a href="#contact">12. Contact</a></li>
-      </ul>
-
-    </nav>
+  </header>
 
 
-    <!-- 1 -->
-    <section id="introduction">
+  <main>
 
-      <h2>1. Introduction</h2>
-
-      <p>
-        This Privacy Policy explains how
-        <span class="highlight">Hidden Team</span>
-        ("Hidden Team", "we", "us", or "our") may process information
-        through RoleSyntax ("RoleSyntax" or "the Bot").
-      </p>
-
-      <p>
-        RoleSyntax is a Discord bot designed to provide role selection,
-        role management, automation, and related server functionality.
-      </p>
-
-      <p>
-        By using RoleSyntax, you acknowledge the practices described
-        in this Privacy Policy.
-      </p>
-
-    </section>
+    <div class="shell">
 
 
-    <!-- 2 -->
-    <section id="information">
+      <aside class="sidebar">
 
-      <h2>2. Information We May Process</h2>
+        <div class="sidebar-title">
+          On this page
+        </div>
 
-      <p>
-        Depending on the features enabled by a Discord server,
-        RoleSyntax may process information made available through
-        Discord and information necessary for the Bot to perform
-        its functions.
-      </p>
+        <nav
+          class="toc"
+          id="toc"
+        >
 
-      <p>This may include:</p>
+          <a href="#introduction">
+            01 · Introduction
+          </a>
 
-      <ul>
-        <li>Discord user ID</li>
-        <li>Discord server or guild ID</li>
-        <li>Username or display name</li>
-        <li>Role IDs and role-related selections</li>
-        <li>Server configuration or Bot settings</li>
-        <li>Interaction information needed to respond to commands or buttons</li>
-        <li>Technical information necessary to operate and maintain the service</li>
-      </ul>
+          <a href="#information">
+            02 · Information We May Process
+          </a>
 
-      <p>
-        The exact information processed may depend on the features
-        enabled and how RoleSyntax is configured by a server
-        administrator.
-      </p>
+          <a href="#usage">
+            03 · How Information Is Used
+          </a>
 
-    </section>
+          <a href="#discord">
+            04 · Discord Information
+          </a>
 
+          <a href="#storage">
+            05 · Data Storage and Retention
+          </a>
 
-    <!-- 3 -->
-    <section id="usage">
+          <a href="#sharing">
+            06 · Information Sharing
+          </a>
 
-      <h2>3. How Information Is Used</h2>
+          <a href="#security">
+            07 · Security
+          </a>
 
-      <p>
-        Information processed by RoleSyntax may be used for purposes
-        such as:
-      </p>
+          <a href="#thirdparty">
+            08 · Third-Party Services
+          </a>
 
-      <ul>
-        <li>Providing role selection and role-management features</li>
-        <li>Responding to commands, buttons, menus, or other interactions</li>
-        <li>Saving necessary server configuration</li>
-        <li>Maintaining and improving Bot functionality</li>
-        <li>Monitoring technical errors and service problems</li>
-        <li>Protecting the service from abuse or unauthorized activity</li>
-        <li>Providing support when a problem is reported</li>
-      </ul>
+          <a href="#choices">
+            09 · Your Choices
+          </a>
 
-      <p>
-        Hidden Team does not intend to process information beyond
-        what is reasonably necessary for the operation of RoleSyntax
-        and its enabled features.
-      </p>
+          <a href="#children">
+            10 · Children and Age Requirements
+          </a>
 
-    </section>
+          <a href="#changes">
+            11 · Changes to This Privacy Policy
+          </a>
 
+          <a href="#contact">
+            12 · Contact
+          </a>
 
-    <!-- 4 -->
-    <section id="discord">
+        </nav>
 
-      <h2>4. Discord Information</h2>
-
-      <p>
-        RoleSyntax operates through Discord and may receive certain
-        information that Discord makes available to applications
-        and bots.
-      </p>
-
-      <p>
-        Such information may include identifiers, usernames,
-        display names, server information, role information,
-        interaction data, and other information made available
-        through Discord's platform and permission system.
-      </p>
-
-      <p>
-        Your use of Discord is separately governed by Discord's
-        own Terms of Service and Privacy Policy.
-      </p>
-
-    </section>
+      </aside>
 
 
-    <!-- 5 -->
-    <section id="storage">
+      <div>
 
-      <h2>5. Data Storage and Retention</h2>
 
-      <p>
-        Some information may be stored when necessary for RoleSyntax
-        to remember configuration, provide persistent functionality,
-        troubleshoot technical issues, or maintain the service.
-      </p>
+        <div class="mobile-nav">
 
-      <p>
-        The amount and duration of storage may vary depending on the
-        feature, server configuration, technical requirements, and
-        operational needs of the service.
-      </p>
+          <label for="mobilePage">
+            Navigate
+          </label>
 
-      <p>
-        Hidden Team aims to retain information only for as long as
-        reasonably necessary for the purpose for which it is used,
-        subject to technical, operational, security, and legal
-        requirements.
-      </p>
+          <select id="mobilePage">
 
-      <div class="warning">
+            <option value="privacy.html">
+              Privacy Policy
+            </option>
 
-        <strong>Important:</strong>
+            <option value="showcase.html">
+              Showcase
+            </option>
 
-        Removing RoleSyntax from a server may stop future processing
-        for that server, but may not immediately remove information
-        that was already stored for legitimate operational purposes.
+            <option value="terms.html">
+              Terms of Service
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <section class="hero">
+
+          <span class="badge">
+            Official Privacy Policy
+          </span>
+
+          <h1>
+            Privacy Policy
+          </h1>
+
+          <p class="subtitle">
+            Privacy Policy describing how RoleSyntax may process
+            information while providing its Discord bot services.
+          </p>
+
+          <p class="updated">
+            Last Updated:
+            <strong>
+              September 11, 2026
+            </strong>
+          </p>
+
+
+          <div class="hero-buttons">
+
+            <a
+              href="showcase.html"
+              class="btn"
+            >
+              ← Showcase
+            </a>
+
+            <a
+              href="terms.html"
+              class="btn"
+            >
+              Terms of Service
+            </a>
+
+            <a
+              href="https://discord.gg/YOUR_SUPPORT_SERVER"
+              class="btn primary"
+            >
+              Support →
+            </a>
+
+          </div>
+
+
+          <div class="notice">
+
+            <div class="notice-icon">
+              i
+            </div>
+
+            <div>
+
+              <strong>
+                Privacy at a Glance
+              </strong>
+
+              <p>
+                RoleSyntax is designed to process only the
+                information reasonably necessary to provide
+                its enabled features, maintain the service,
+                and support server functionality.
+              </p>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <section
+          class="policy-section"
+          id="introduction"
+        >
+
+          <div class="section-heading">
+
+            <div class="section-number">
+              01
+            </div>
+
+            <h2>
+              Introduction
+            </h2>
+
+            <button
+              class="copy-link"
+              data-copy="#introduction"
+              type="button"
+              aria-label="Copy section link"
+            >
+              ↗
+            </button>
+
+          </div>
+
+          <p>
+            This Privacy Policy explains how
+            <span class="highlight">Hidden Team</span>
+            ("Hidden Team", "we", "us", or "our")
+            may process information through RoleSyntax
+            ("RoleSyntax" or "the Bot").
+          </p>
+
+          <p>
+            RoleSyntax is a Discord bot designed to provide
+            role selection, role management, automation,
+            and related server functionality.
+          </p>
+
+          <p>
+            By using RoleSyntax, you acknowledge the practices
+            described in this Privacy Policy.
+          </p>
+
+        </section>
+
+
+        <section
+          class="policy-section"
+          id="information"
+        >
+
+          <div class="section-heading">
+            <div class="section-number">02</div>
+
+            <h2>
+              Information We May Process
+            </h2>
+
+            <button
+              class="copy-link"
+              data-copy="#information"
+              type="button"
+              aria-label="Copy section link"
+            >
+              ↗
+            </button>
+          </div>
+
+          <p>
+            Depending on the features enabled by a Discord server,
+            RoleSyntax may process information made available through
+            Discord and information necessary for the Bot to perform
+            its functions.
+          </p>
+
+          <p>
+            This may include:
+          </p>
+
+          <ul>
+            <li>Discord user ID</li>
+            <li>Discord server or guild ID</li>
+            <li>Username or display name</li>
+            <li>Role IDs and role-related selections</li>
+            <li>Server configuration or Bot settings</li>
+            <li>
+              Interaction information needed to respond
+              to commands or buttons
+            </li>
+            <li>
+              Technical information necessary to operate
+              and maintain the service
+            </li>
+          </ul>
+
+          <p>
+            The exact information processed may depend on the features
+            enabled and how RoleSyntax is configured by a server
+            administrator.
+          </p>
+
+        </section>
+
+
+        <section
+          class="policy-section"
+          id="usage"
+        >
+
+          <div class="section-heading">
+            <div class="section-number">03</div>
+
+            <h2>
+              How Information Is Used
+            </h2>
+
+            <button
+              class="copy-link"
+              data-copy="#usage"
+              type="button"
+              aria-label="Copy section link"
+            >
+              ↗
+            </button>
+          </div>
+
+          <p>
+            Information processed by RoleSyntax may be used
+            for purposes such as:
+          </p>
+
+          <ul>
+            <li>Providing role selection and role-management features</li>
+            <li>
+              Responding to commands, buttons, menus,
+              or other interactions
+            </li>
+            <li>Saving necessary server configuration</li>
+            <li>Maintaining and improving Bot functionality</li>
+            <li>Monitoring technical errors and service problems</li>
+            <li>
+              Protecting the service from abuse
+              or unauthorized activity
+            </li>
+            <li>Providing support when a problem is reported</li>
+          </ul>
+
+          <p>
+            Hidden Team does not intend to process information beyond
+            what is reasonably necessary for the operation of RoleSyntax
+            and its enabled features.
+          </p>
+
+        </section>
+
+
+        <section
+          class="policy-section"
+          id="discord"
+        >
+
+          <div class="section-heading">
+            <div class="section-number">04</div>
+
+            <h2>Discord Information</h2>
+
+            <button
+              class="copy-link"
+              data-copy="#discord"
+              type="button"
+              aria-label="Copy section link"
+            >
+              ↗
+            </button>
+          </div>
+
+          <p>
+            RoleSyntax operates through Discord and may receive
+            certain information that Discord makes available to
+            applications and bots.
+          </p>
+
+          <p>
+            Such information may include identifiers, usernames,
+            display names, server information, role information,
+            interaction data, and other information made available
+            through Discord's platform and permission system.
+          </p>
+
+          <p>
+            Your use of Discord is separately governed by Discord's
+            own Terms of Service and Privacy Policy.
+          </p>
+
+        </section>
+
+
+        <section
+          class="policy-section"
+          id="storage"
+        >
+
+          <div class="section-heading">
+            <div class="section-number">05</div>
+
+            <h2>
+              Data Storage and Retention
+            </h2>
+
+            <button
+              class="copy-link"
+              data-copy="#storage"
+              type="button"
+              aria-label="Copy section link"
+            >
+              ↗
+            </button>
+          </div>
+
+          <p>
+            Some information may be stored when necessary for RoleSyntax
+            to remember configuration, provide persistent functionality,
+            troubleshoot technical issues, or maintain the service.
+          </p>
+
+          <p>
+            The amount and duration of storage may vary depending on the
+            feature, server configuration, technical requirements, and
+            operational needs of the service.
+          </p>
+
+          <p>
+            Hidden Team aims to retain information only for as long as
+            reasonably necessary for the purpose for which it is used,
+            subject to technical, operational, security, and legal
+            requirements.
+          </p>
+
+          <div class="warning">
+
+            <strong>
+              Important
+            </strong>
+
+            <p>
+              Removing RoleSyntax from a server may stop future
+              processing for that server, but may not immediately
+              remove information that was already stored for legitimate
+              operational purposes.
+            </p>
+
+          </div>
+
+        </section>
+
+
+        <section
+          class="policy-section"
+          id="sharing"
+        >
+
+          <div class="section-heading">
+            <div class="section-number">06</div>
+
+            <h2>Information Sharing</h2>
+
+            <button
+              class="copy-link"
+              data-copy="#sharing"
+              type="button"
+              aria-label="Copy section link"
+            >
+              ↗
+            </button>
+          </div>
+
+          <p>
+            Hidden Team does not sell personal information collected
+            or processed through RoleSyntax.
+          </p>
+
+          <p>
+            Information may only be accessed, disclosed, or processed
+            when reasonably necessary to:
+          </p>
+
+          <ul>
+            <li>Operate and maintain RoleSyntax</li>
+            <li>Provide requested support</li>
+            <li>Protect the service and its users</li>
+            <li>
+              Use infrastructure or service providers
+              required to operate the Bot
+            </li>
+            <li>Comply with applicable legal obligations</li>
+            <li>
+              Investigate abuse, security incidents,
+              or technical problems
+            </li>
+          </ul>
+
+          <p>
+            Hidden Team will not intentionally use RoleSyntax
+            to collect unnecessary personal information.
+          </p>
+
+        </section>
+
+
+        <section
+          class="policy-section"
+          id="security"
+        >
+
+          <div class="section-heading">
+            <div class="section-number">07</div>
+
+            <h2>Security</h2>
+
+            <button
+              class="copy-link"
+              data-copy="#security"
+              type="button"
+              aria-label="Copy section link"
+            >
+              ↗
+            </button>
+          </div>
+
+          <p>
+            Hidden Team takes reasonable technical and organizational
+            measures to help protect information processed through
+            RoleSyntax.
+          </p>
+
+          <p>
+            However, no online service or software system can guarantee
+            absolute security. Users and server administrators are also
+            responsible for maintaining the security of their own
+            Discord accounts, permissions, and server configuration.
+          </p>
+
+        </section>
+
+
+        <section
+          class="policy-section"
+          id="thirdparty"
+        >
+
+          <div class="section-heading">
+            <div class="section-number">08</div>
+
+            <h2>Third-Party Services</h2>
+
+            <button
+              class="copy-link"
+              data-copy="#thirdparty"
+              type="button"
+              aria-label="Copy section link"
+            >
+              ↗
+            </button>
+          </div>
+
+          <p>
+            RoleSyntax relies on Discord and may rely on third-party
+            hosting, infrastructure, databases, APIs, monitoring,
+            or other technical services.
+          </p>
+
+          <p>
+            Third-party services may process information according
+            to their own privacy policies and terms.
+          </p>
+
+          <p>
+            Hidden Team is not responsible for privacy practices or
+            security incidents caused by third-party services outside
+            its reasonable control.
+          </p>
+
+        </section>
+
+
+        <section
+          class="policy-section"
+          id="choices"
+        >
+
+          <div class="section-heading">
+            <div class="section-number">09</div>
+
+            <h2>Your Choices</h2>
+
+            <button
+              class="copy-link"
+              data-copy="#choices"
+              type="button"
+              aria-label="Copy section link"
+            >
+              ↗
+            </button>
+          </div>
+
+          <p>
+            Depending on the feature involved, users and server
+            administrators may control certain information by changing
+            their Discord settings, server configuration, or by
+            discontinuing use of RoleSyntax.
+          </p>
+
+          <p>
+            Server administrators may remove RoleSyntax from their
+            Discord server at any time.
+          </p>
+
+          <p>
+            For questions regarding stored information or a privacy
+            concern related to RoleSyntax, contact Hidden Team
+            through the official support channel.
+          </p>
+
+        </section>
+
+
+        <section
+          class="policy-section"
+          id="children"
+        >
+
+          <div class="section-heading">
+            <div class="section-number">10</div>
+
+            <h2>
+              Children and Age Requirements
+            </h2>
+
+            <button
+              class="copy-link"
+              data-copy="#children"
+              type="button"
+              aria-label="Copy section link"
+            >
+              ↗
+            </button>
+          </div>
+
+          <p>
+            RoleSyntax is a Discord application and does not
+            independently determine a user's age.
+          </p>
+
+          <p>
+            Users must meet the age and account requirements
+            established by Discord and applicable law in their location.
+          </p>
+
+        </section>
+
+
+        <section
+          class="policy-section"
+          id="changes"
+        >
+
+          <div class="section-heading">
+            <div class="section-number">11</div>
+
+            <h2>
+              Changes to This Privacy Policy
+            </h2>
+
+            <button
+              class="copy-link"
+              data-copy="#changes"
+              type="button"
+              aria-label="Copy section link"
+            >
+              ↗
+            </button>
+          </div>
+
+          <p>
+            Hidden Team may update this Privacy Policy from time to time
+            to reflect changes to RoleSyntax, its features, technical
+            infrastructure, security practices, or applicable requirements.
+          </p>
+
+          <p>
+            The "Last Updated" date at the top of this page indicates
+            when this Privacy Policy was most recently revised.
+          </p>
+
+          <p>
+            Continued use of RoleSyntax after changes become effective
+            constitutes acknowledgment of the updated Privacy Policy,
+            to the extent permitted by applicable law.
+          </p>
+
+        </section>
+
+
+        <section
+          class="policy-section"
+          id="contact"
+        >
+
+          <div class="section-heading">
+            <div class="section-number">12</div>
+
+            <h2>Contact</h2>
+
+            <button
+              class="copy-link"
+              data-copy="#contact"
+              type="button"
+              aria-label="Copy section link"
+            >
+              ↗
+            </button>
+          </div>
+
+          <p>
+            For privacy questions, concerns, data-related requests,
+            or other issues involving RoleSyntax, contact
+            <span class="highlight">Hidden Team</span>
+            through the official RoleSyntax support server.
+          </p>
+
+          <p>
+            Please provide enough information for the support team
+            to understand and investigate your request.
+          </p>
+
+        </section>
+
+
+        <div
+          class="hero-buttons"
+          style="margin-top:24px;"
+        >
+
+          <a
+            href="showcase.html"
+            class="btn"
+          >
+            ← Back to Showcase
+          </a>
+
+          <a
+            href="terms.html"
+            class="btn"
+          >
+            Terms of Service →
+          </a>
+
+        </div>
 
       </div>
 
-    </section>
-
-
-    <!-- 6 -->
-    <section id="sharing">
-
-      <h2>6. Information Sharing</h2>
-
-      <p>
-        Hidden Team does not sell personal information collected or
-        processed through RoleSyntax.
-      </p>
-
-      <p>
-        Information may only be accessed, disclosed, or processed
-        when reasonably necessary to:
-      </p>
-
-      <ul>
-        <li>Operate and maintain RoleSyntax</li>
-        <li>Provide requested support</li>
-        <li>Protect the service and its users</li>
-        <li>Use infrastructure or service providers required to operate the Bot</li>
-        <li>Comply with applicable legal obligations</li>
-        <li>Investigate abuse, security incidents, or technical problems</li>
-      </ul>
-
-      <p>
-        Hidden Team will not intentionally use RoleSyntax to collect
-        unnecessary personal information.
-      </p>
-
-    </section>
-
-
-    <!-- 7 -->
-    <section id="security">
-
-      <h2>7. Security</h2>
-
-      <p>
-        Hidden Team takes reasonable technical and organizational
-        measures to help protect information processed through
-        RoleSyntax.
-      </p>
-
-      <p>
-        However, no online service or software system can guarantee
-        absolute security. Users and server administrators are also
-        responsible for maintaining the security of their own Discord
-        accounts, permissions, and server configuration.
-      </p>
-
-    </section>
-
-
-    <!-- 8 -->
-    <section id="thirdparty">
-
-      <h2>8. Third-Party Services</h2>
-
-      <p>
-        RoleSyntax relies on Discord and may rely on third-party
-        hosting, infrastructure, databases, APIs, monitoring,
-        or other technical services.
-      </p>
-
-      <p>
-        Third-party services may process information according to
-        their own privacy policies and terms.
-      </p>
-
-      <p>
-        Hidden Team is not responsible for privacy practices or
-        security incidents caused by third-party services outside
-        its reasonable control.
-      </p>
-
-    </section>
-
-
-    <!-- 9 -->
-    <section id="choices">
-
-      <h2>9. Your Choices</h2>
-
-      <p>
-        Depending on the feature involved, users and server
-        administrators may control certain information by changing
-        their Discord settings, server configuration, or by
-        discontinuing use of RoleSyntax.
-      </p>
-
-      <p>
-        Server administrators may remove RoleSyntax from their
-        Discord server at any time.
-      </p>
-
-      <p>
-        For questions regarding stored information or a privacy
-        concern related to RoleSyntax, contact Hidden Team through
-        the official support channel.
-      </p>
-
-    </section>
-
-
-    <!-- 10 -->
-    <section id="children">
-
-      <h2>10. Children and Age Requirements</h2>
-
-      <p>
-        RoleSyntax is a Discord application and does not independently
-        determine a user's age.
-      </p>
-
-      <p>
-        Users must meet the age and account requirements established
-        by Discord and applicable law in their location.
-      </p>
-
-    </section>
-
-
-    <!-- 11 -->
-    <section id="changes">
-
-      <h2>11. Changes to This Privacy Policy</h2>
-
-      <p>
-        Hidden Team may update this Privacy Policy from time to time
-        to reflect changes to RoleSyntax, its features, technical
-        infrastructure, security practices, or applicable requirements.
-      </p>
-
-      <p>
-        The "Last Updated" date at the top of this page indicates
-        when this Privacy Policy was most recently revised.
-      </p>
-
-      <p>
-        Continued use of RoleSyntax after changes become effective
-        constitutes acknowledgment of the updated Privacy Policy,
-        to the extent permitted by applicable law.
-      </p>
-
-    </section>
-
-
-    <!-- 12 -->
-    <section id="contact">
-
-      <h2>12. Contact</h2>
-
-      <p>
-        For privacy questions, concerns, data-related requests,
-        or other issues involving RoleSyntax, contact
-        <span class="highlight">Hidden Team</span>
-        through the official RoleSyntax support server.
-      </p>
-
-      <p>
-        Please provide enough information for the support team to
-        understand and investigate your request.
-      </p>
-
-    </section>
-
-
-    <!-- FOOTER -->
-    <footer>
-
-      <p class="footer-brand">
-        © 2026 RoleSyntax — Developed and maintained by Hidden Team.
-      </p>
-
-      <p>
-        RoleSyntax is an independent Discord bot and is not operated,
-        endorsed, or sponsored by Discord Inc.
-      </p>
-
-    </footer>
+    </div>
 
   </main>
+
+
+  <footer>
+
+    <strong>
+      © 2026 RoleSyntax — Hidden Team
+    </strong>
+
+    <div class="footer-links">
+
+      <a href="showcase.html">Showcase</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="https://discord.gg/YOUR_SUPPORT_SERVER">
+        Support
+      </a>
+
+    </div>
+
+    RoleSyntax is an independent Discord bot
+    and is not operated, endorsed, or sponsored by Discord Inc.
+
+  </footer>
+
+
+  <button
+    class="top-btn"
+    id="topBtn"
+    type="button"
+    aria-label="Back to top"
+  >
+    ↑
+  </button>
+
+
+  <script>
+    const root =
+      document.documentElement;
+
+    const themeToggle =
+      document.getElementById("themeToggle");
+
+    const progress =
+      document.getElementById("progress");
+
+    const topBtn =
+      document.getElementById("topBtn");
+
+    const mobilePage =
+      document.getElementById("mobilePage");
+
+    const sections =
+      [...document.querySelectorAll(".policy-section")];
+
+    const tocLinks =
+      [...document.querySelectorAll(".toc a")];
+
+    const savedTheme =
+      localStorage.getItem("rolesyntax-theme");
+
+    if (
+      savedTheme === "light" ||
+      savedTheme === "dark"
+    ) {
+      root.dataset.theme = savedTheme;
+    }
+
+    function setThemeIcon() {
+      if (themeToggle) {
+        themeToggle.textContent =
+          root.dataset.theme === "light"
+            ? "☀"
+            : "☾";
+      }
+    }
+
+    setThemeIcon();
+
+    if (themeToggle) {
+      themeToggle.addEventListener(
+        "click",
+        () => {
+
+          const next =
+            root.dataset.theme === "light"
+              ? "dark"
+              : "light";
+
+          root.dataset.theme = next;
+
+          localStorage.setItem(
+            "rolesyntax-theme",
+            next
+          );
+
+          setThemeIcon();
+        }
+      );
+    }
+
+    window.addEventListener(
+      "scroll",
+      () => {
+
+        const scrollTop =
+          window.scrollY;
+
+        const height =
+          document.documentElement.scrollHeight -
+          window.innerHeight;
+
+        const percent =
+          height > 0
+            ? (scrollTop / height) * 100
+            : 0;
+
+        progress.style.width =
+          `${percent}%`;
+
+        topBtn.classList.toggle(
+          "show",
+          scrollTop > 500
+        );
+
+      },
+      { passive: true }
+    );
+
+    topBtn.addEventListener(
+      "click",
+      () => {
+
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+
+      }
+    );
+
+    mobilePage.addEventListener(
+      "change",
+      () => {
+        window.location.href =
+          mobilePage.value;
+      }
+    );
+
+    const observer =
+      new IntersectionObserver(
+        entries => {
+
+          const visible =
+            entries
+              .filter(entry =>
+                entry.isIntersecting
+              )
+              .sort(
+                (a,b) =>
+                  b.intersectionRatio -
+                  a.intersectionRatio
+              );
+
+          if (!visible.length) {
+            return;
+          }
+
+          const id =
+            visible[0].target.id;
+
+          tocLinks.forEach(link => {
+
+            link.classList.toggle(
+              "active",
+              link.getAttribute("href") ===
+              `#${id}`
+            );
+
+          });
+
+        },
+        {
+          rootMargin:
+            "-18% 0px -65% 0px",
+
+          threshold: [0.1, 0.3, 0.6]
+        }
+      );
+
+    sections.forEach(section =>
+      observer.observe(section)
+    );
+
+    document.querySelectorAll(
+      ".copy-link"
+    ).forEach(button => {
+
+      button.addEventListener(
+        "click",
+        async () => {
+
+          const hash =
+            button.dataset.copy;
+
+          const url =
+            `${window.location.origin}${window.location.pathname}${hash}`;
+
+          try {
+
+            await navigator.clipboard.writeText(
+              url
+            );
+
+            const original =
+              button.textContent;
+
+            button.textContent = "✓";
+
+            setTimeout(() => {
+              button.textContent = original;
+            }, 1100);
+
+          } catch {
+
+            window.location.hash =
+              hash.substring(1);
+
+          }
+
+        }
+      );
+
+    });
+
+    function highlightHash() {
+
+      if (!window.location.hash) {
+        return;
+      }
+
+      const target =
+        document.querySelector(
+          window.location.hash
+        );
+
+      if (!target) {
+        return;
+      }
+
+      target.classList.add("flash");
+
+      setTimeout(() => {
+        target.classList.remove("flash");
+      }, 1300);
+
+    }
+
+    window.addEventListener(
+      "load",
+      highlightHash
+    );
+
+    window.addEventListener(
+      "hashchange",
+      highlightHash
+    );
+  </script>
 
 </body>
 </html>
